@@ -1,4 +1,4 @@
-# AI TV Recommender 📺✨
+# AI TV Recommender
 
 A full-stack web application that generates highly customised TV show recommendations using natural language processing. By analysing the plot summaries and genres of thousands of shows, this engine builds a unique viewer profile based on your favourite titles and mathematically determines the best matches.
 
