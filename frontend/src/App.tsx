@@ -6,7 +6,6 @@ function App() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleDiscover = async () => {
-    // Clear any old errors or old recommendations when they click the button again
     setErrorMessage("");
     setRecommendations([]);
 
@@ -20,7 +19,6 @@ function App() {
         body: JSON.stringify({ titles: formattedTitles }),
       });
 
-      // If the backend sent our 404 error, manually trigger the catch block
       if (!response.ok) {
         throw new Error("Show not found in the database.");
       }
@@ -29,7 +27,6 @@ function App() {
       setRecommendations(data.recommendations);
 
     } catch (err: any) {
-      // This catches the error and saves it to your new state
       setErrorMessage(err.message);
     }
   };
