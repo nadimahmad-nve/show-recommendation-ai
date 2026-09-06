@@ -5,20 +5,20 @@ import pickle
 import pandas as pd
 import numpy as np
 
-# 1. Initialize the FastAPI app
+# Initialize the FastAPI app
 app = FastAPI()
 
 # --- NEW CORS CONFIGURATION ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Allows all frontends to connect (fine for local development)
+    allow_origins=["*"], 
     allow_credentials=True,
-    allow_methods=["*"], # Allows POST, GET, OPTIONS, etc.
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 # ------------------------------
 
-# 2. Load the frozen AI models into memory
+# Loading AI models into memory
 try:
     with open('shows_list.pkl', 'rb') as file:
         shows = pickle.load(file)
@@ -30,14 +30,11 @@ try:
 except FileNotFoundError:
     print("Error: Model files not found. Ensure .pkl files are in the same directory.")
 
-# 3. Define the incoming JSON structure from the React frontend
 class ProfileRequest(BaseModel):
     titles: list[str]
 
-# 4. Create the endpoint
 @app.post("/recommend")
 def get_recommendations(request: ProfileRequest):
-    # Extract the list of titles from the incoming request
     titles_list = request.titles
     
     # Map titles to row numbers, ignoring any typos or shows not in the dataset
