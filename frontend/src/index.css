@@ -1,0 +1,126 @@
+body {
+  background-color: #121212; /* Slightly darker than gray to make the neon pop */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Centers the app horizontally */
+  padding-top: 50px;
+}
+
+/* 1. The Main Container */
+.app-container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* 2. Neon Typography */
+.neon-title {
+  text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; /* Soft green glow behind the text */
+  margin-bottom: 5px;
+}
+
+/* 3. Search Bar Layout (Flexbox) */
+.search-section {
+  display: flex; /* Puts the input and button on the same horizontal line */
+  gap: 15px; /* Adds space between them */
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+/* 4. The Glowing Input */
+.neon-input {
+  flex: 1; /* Tells the input to stretch and fill all available space left by the button */
+  background-color: rgba(0, 0, 0, 0.5); /* A slightly transparent dark fill */
+  color: #00ffcc;
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 8px #00ffcc, 0 0 8px #00ffcc inset;
+  outline: none;
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.neon-input::placeholder {
+  color: rgba(0, 255, 204, 0.4);
+}
+
+/* 5. The Cyberpunk Button */
+.neon-button {
+  background-color: transparent;
+  color: #00bfff; /* Neon Blue */
+  border: 2px solid #00bfff;
+  box-shadow: 0 0 8px #00bfff, 0 0 8px #00bfff inset;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease; /* Makes the hover effect smooth instead of instant */
+}
+.neon-button:hover {
+  background-color: #00bfff;
+  color: #121212;
+  box-shadow: 0 0 15px #00bfff, 0 0 20px #00bfff inset;
+}
+
+/* 6. The Results List */
+.results-list {
+  list-style-type: none; /* Removes the ugly default bullet points */
+  padding: 0;
+}
+.results-list li {
+  background-color: rgba(255, 255, 255, 0.05); /* Very subtle gray box */
+  border-left: 4px solid #00ffcc; /* Green accent line on the left */
+  margin-bottom: 10px;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 0 5px 5px 0;
+  transition: transform 0.2s; /* Smooth movement */
+}
+.results-list li:hover {
+  transform: translateX(10px); /* Nudges the list item slightly right when you hover */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 7. Background Blobs */
+.neon-blob {
+  position: fixed; /* Pins them to the screen so they don't scroll away */
+  border-radius: 50%; /* Makes them perfectly round */
+  filter: blur(100px); /* This turns a solid circle into a soft, glowing cloud */
+  z-index: -1; /* Forces the blobs behind all your text and buttons */
+  animation: pulse 8s infinite alternate ease-in-out;
+}
+
+.blob-blue {
+  background-color: #00bfff;
+  width: 350px;
+  height: 350px;
+  top: 10%;
+  left: 5%;
+}
+
+.blob-green {
+  background-color: #00ffcc;
+  width: 300px;
+  height: 300px;
+  bottom: 10%;
+  right: 5%;
+  animation-delay: -3s; /* Desyncs the green blob so they don't pulse at the exact same time */
+}
+
+/* 8. The Animation Engine */
+@keyframes pulse {
+  0% {
+    transform: scale(0.8) translate(0px, 0px);
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.4; /* The "flash" of brightness */
+  }
+  100% {
+    transform: scale(1.2) translate(50px, -50px); /* Makes them drift slightly */
+    opacity: 0.15;
+  }
+}

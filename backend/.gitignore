@@ -1,0 +1,11 @@
+# Environments
+venv/
+
+# Caches
+__pycache__/
+.ipynb_checkpoints/
+
+# Data and Binaries
+*.csv
+data/
+*.pkl
