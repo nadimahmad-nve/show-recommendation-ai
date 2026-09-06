@@ -40,3 +40,31 @@ python -m venv venv
 source venv/bin/activate
 
 pip install fastapi uvicorn pandas scikit-learn
+```
+
+### 2. Generate the AI Models
+This repository does not include the massive `*.pkl` binary files. You must generate them yourself:
+1. Place your raw Netflix dataset (`titles.csv`, etc.) in the `backend/data/` folder.
+2. Open `RecommendationEngine.ipynb` in your preferred notebook editor.
+3. Run all cells to process the data. This will output `shows_list.pkl` and `similarity_matrix.pkl` directly into your backend folder.
+
+### 3. Start the FastAPI Server
+Ensure your virtual environment is active, then boot the server:
+
+```bash
+uvicorn main:app --reload
+```
+*The API will now be listening on `http://127.0.0.1:8000`.*
+
+### 4. Start the React Frontend
+Open a second terminal instance, navigate to the frontend directory, install the necessary node modules, and start the Vite development server:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+*The web app will be live at `http://localhost:5173`.*
+
+## Author
+Developed by Nadim Ahmad.
