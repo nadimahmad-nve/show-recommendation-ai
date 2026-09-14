@@ -5,7 +5,6 @@ import pickle
 import pandas as pd
 import numpy as np
 
-# Initialize the FastAPI app
 app = FastAPI()
 
 # --- NEW CORS CONFIGURATION ---
